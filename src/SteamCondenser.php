@@ -14,7 +14,7 @@ namespace SteamCondenser;
 
 use Monolog\Logger;
 
-const VERSION = '1.3.9';
+const VERSION = '2.0.0a';
 
 /**
  * Returns a Monolog logger with the given name
