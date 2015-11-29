@@ -1,5 +1,5 @@
 {
-    "name": "mallardduck/steam-condenser",
+    "name": "koraktor/steam-condenser",
     "version": "master-testing",
     "description": "The Steam Condenser is a library for querying the Steam Community, Source and GoldSrc game servers",
     "keywords": [ "steam", "query", "source", "goldsrc", "community", "webapi" ],
