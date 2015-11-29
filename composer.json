@@ -1,6 +1,6 @@
 {
-    "name": "MallardDuck/steam-condenser-lara",
-    "version": "2.0.0a",
+    "name": "mallardduck/steam-condenser",
+    "version": "master-testing",
     "description": "The Steam Condenser is a library for querying the Steam Community, Source and GoldSrc game servers",
     "keywords": [ "steam", "query", "source", "goldsrc", "community", "webapi" ],
     "homepage": "https://github.com/MallardDuck/steam-condenser",
