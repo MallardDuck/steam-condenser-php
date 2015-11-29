@@ -1,22 +1,20 @@
 {
-    "name": "koraktor/steam-condenser",
-    "version": "1.3.10",
+    "name": "mallardduck/steam-condenser",
+    "version": "dev-master",
     "description": "The Steam Condenser is a library for querying the Steam Community, Source and GoldSrc game servers",
     "keywords": [ "steam", "query", "source", "goldsrc", "community", "webapi" ],
-    "homepage": "http://koraktor.de/steam-condenser",
+    "homepage": "https://github.com/MallardDuck/steam-condenser",
     "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Sebastian Staudt",
             "email": "koraktor@gmail.com"
+        },
+        {
+            "name": "Daniel Pock",
+            "email": "dpock32509@gmail.com"
         }
     ],
-    "support": {
-        "email": "steam-condenser@googlegroups.com",
-        "issues": "https://github.com/koraktor/steam-condenser/issues",
-        "source": "https://github.com/koraktor/steam-condenser-php",
-        "wiki": "https://github.com/koraktor/steam-condenser/wiki"
-    },
     "require": {
         "php": ">=5.4.0",
         "monolog/monolog": "~1.10"
@@ -27,6 +25,6 @@
     },
     "autoload": {
         "files": [ "lib/SteamCondenser.php" ],
-        "psr-4": { "SteamCondenser\\": "lib/SteamCondenser" }
+        "psr-4": { "SteamCondenser\\": "src" }
     }
 }
