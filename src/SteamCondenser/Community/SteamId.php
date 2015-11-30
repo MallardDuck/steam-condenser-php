@@ -37,6 +37,11 @@ class SteamId extends XMLData {
     /**
      * @var array
      */
+    private $friendslist;
+
+    /**
+     * @var array
+     */
     private $games;
 
     /**
@@ -219,6 +224,32 @@ class SteamId extends XMLData {
     }
 
     /**
+     * Fetches the friends of this user
+     *
+     * This returns the json data of the friends
+     * without fetching their data.
+     *
+     * @return SteamId[]
+     * @see getFriendslist()
+     * @throws SteamCondenserException if an error occurs while parsing the
+     *         data
+     * Fetches the games this user owns
+     *
+     */
+    public function fetchFriendslist() {
+        $params = [
+                'key' => env('STEAM_API', '12345678906C4512345678904ABCDE'),
+                'steamid' => $this->getSteamId64(),
+                'relationship' => 'friend'
+        ];
+        $api = new WebApi;
+        $api->setSecure();
+        $friendsJson = $api::getJSONObject('ISteamUser', 'GetFriendList', 1, $params);
+        $this->friendslist = json_decode($friendsJson);
+        return $this->friendlist;
+    }
+
+    /**
      * Fetches the games this user owns
      *
      * @see getGames()
@@ -308,6 +339,18 @@ class SteamId extends XMLData {
      */
     public function getFriends() {
         return $this->friends ?: $this->fetchFriends();
+    }
+
+    /**
+     * Returns the Steam Community friends of this user
+     *
+     * If the friends haven't been fetched yet, this is done now.
+     *
+     * @return SteamId[] The friends of this user
+     * @see fetchFriends()
+     */
+    public function getFriendslist() {
+        return $this->friendslist ?: $this->fetchFriendslist();
     }
 
     /**
