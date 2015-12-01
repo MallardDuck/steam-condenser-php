@@ -238,15 +238,13 @@ class SteamId extends XMLData {
      */
     public function fetchFriendslist() {
         $params = [
-                'key' => env('STEAM_API', '12345678906C4512345678904ABCDE'),
-                'steamid' => $this->getSteamId64(),
-                'relationship' => 'friend'
+            'key' => env('STEAM_API', '12345678906C4512345678904ABCDE'),
+            'steamid' => $this->getSteamId64(),
+            'relationship' => 'friend'
         ];
-        $api = new WebApi;
-        $api->setSecure();
-        $friendsJson = $api::getJSONObject('ISteamUser', 'GetFriendList', 1, $params);
-        $this->friendslist = json_decode($friendsJson);
-        return $this->friendlist;
+        $friendsJson = WebApi::getJSON('ISteamUser', 'GetFriendList', 1, $params);
+        $this->friendslist = json_encode(json_decode($friendsJson)->friendslist->friends, JSON_PRETTY_PRINT);
+        return $this->friendslist;
     }
 
     /**
